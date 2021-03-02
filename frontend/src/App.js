@@ -9,9 +9,7 @@ import UserView from "./Userview";
 import Login from "./Login";
 import UserViewFields from "./UserMemView";
 import Field from "./Field";
-import { Auth0Provider } from "@auth0/auth0-react";
-const domain = "dev-p7twj3w2.us.auth0.com";
-const clientId = "j31x9VghaQtijn2AGLcto7MBELCJVjO9";
+
 
 function App() {
   return (
