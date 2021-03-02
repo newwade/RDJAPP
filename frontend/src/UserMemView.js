@@ -8,11 +8,7 @@ export default function UserVieUserView() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.length > 0) {
           setState(data);
-        } else {
-          setState();
-        }
       });
   };
   useEffect(() => {
