@@ -1,0 +1,26 @@
+.App {
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  position: relative;
+  left: 30%;
+}
+.login__submit {
+  padding: 7px;
+  margin-top: 10px;
+}
+.userview,
+.userViewField {
+  position: relative;
+  left: 400px;
+  top: 50px;
+}
+.userview > table > tr > th,
+.userViewField > table > tr > th {
+  background: #0275d8;
+}

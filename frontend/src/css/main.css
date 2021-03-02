@@ -1,0 +1,77 @@
+.main__sidebar {
+  padding: 20px;
+  width: 15%;
+  height: 100vh;
+  font-size: 15px;
+  background: url("https://wallpaperaccess.com/full/1682034.png");
+
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.main__sidebar > p {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  padding: 5px;
+  outline: none;
+  text-decoration: none;
+}
+.main__sidebar > p:hover {
+  cursor: pointer;
+  color: white;
+  transition: 0.5s all;
+}
+.main {
+  display: flex;
+}
+.main__cards {
+  display: flex;
+  width: 75%;
+  padding: 50px;
+  color: lightgray;
+}
+.main__cards__admin {
+  width: 300px;
+  height: 200px;
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 20px black;
+}
+.main__cards__mem {
+  width: 300px;
+  height: 200px;
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 20px black;
+}
+.main__cards__dep {
+  width: 300px;
+  height: 200px;
+  background-color: rgb(48, 48, 48);
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 20px black;
+}
+.main__card__icon {
+  color: white;
+}
+.main__cards > div:hover {
+  box-shadow: none;
+  transition: 0.3s all ease-in-out;
+}
+.btn_link {
+  color: lightgray;
+  transition: 0.3s all ease-in-out;
+}
+.btn_link:hover {
+  color: white;
+}
+.navabar_link {
+  display: flex;
+  margin-left: 65px;
+}

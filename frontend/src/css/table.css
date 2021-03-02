@@ -1,0 +1,26 @@
+.field,
+.people {
+  width: 50%;
+  margin: auto;
+}
+
+table,
+th,
+td {
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+}
+th {
+  background-color: rgb(64, 64, 64);
+  color: white;
+}
+table {
+  width: 600px;
+  height: 200px;
+}
+.edit_btn {
+  color: white;
+  background: #0275d8;
+  border: none;
+}

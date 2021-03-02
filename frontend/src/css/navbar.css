@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  width: 100%;
+  background: url("https://wallpaperaccess.com/full/1682034.png");
+  background-color: rgb(48, 48, 48);
+  height: 100px;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  border-bottom: 1px solid #ff7f50;
+}
+.navabar_link {
+  position: absolute;
+  left: 230px;
+}
+.navabar_link1 {
+  color: white !important;
+  padding-right: 100px;
+}
+
+.linked {
+  display: table-cell;
+  position: relative;
+  padding: 15px 0;
+  margin-right: 160px;
+}
+.linked > h4 {
+  margin-left: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+
+  display: inline-block;
+  position: relative;
+}
+.linked > h4:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #ff7f50;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.linked > h4:hover:after {
+  width: 100%;
+  left: 0;
+}
