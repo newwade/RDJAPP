@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import swal from "sweetalert";
 import { Button, Table } from "react-bootstrap";
 import AddPepModal from "./AddPepModal";
-import EditPepModal from "./EditPepModal";
 
 class People extends Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class People extends Component {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(
-      fetch("http://127.0.0.1:8000/emp/" + empId, {
+      fetch("http://127.0.0.1:8000/app/emp/" + empId, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -78,8 +77,7 @@ class People extends Component {
                 <td>{data.department}</td>
                 <td>{data.dateJoin}</td>
 
-                {/* <td>Edit/Delete</td> */}
-                <Button
+                {/* <Button
                   onClick={() => {
                     this.setState({
                       editShowModal: true,
@@ -93,7 +91,7 @@ class People extends Component {
                   variant="info"
                 >
                   Edit
-                </Button>
+                </Button> */}
                 <Button
                   onClick={() => {
                     this.deleteField(data.empId);
@@ -103,14 +101,6 @@ class People extends Component {
                 >
                   Delete
                 </Button>
-                <EditPepModal
-                  show={this.state.editShowModal}
-                  onHide={editModalClose}
-                  empId={empId}
-                  empName={empName}
-                  department={department}
-                  dateJoin={dateJoin}
-                />
               </tr>
             ))}
           </tbody>

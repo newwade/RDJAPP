@@ -9,10 +9,7 @@ import UserView from "./Userview";
 import Login from "./Login";
 import UserViewFields from "./UserMemView";
 import Field from "./Field";
-import { Auth0Provider } from "@auth0/auth0-react";
-const domain = "dev-p7twj3w2.us.auth0.com";
-const clientId = "j31x9VghaQtijn2AGLcto7MBELCJVjO9";
-
+import EditModal from "./EditModal";
 function App() {
   return (
     <div>
@@ -23,8 +20,10 @@ function App() {
           <Switch>
             <Route path="/" component={Main} exact />
             <Route path="/People" component={People} />
+            <Route path="/edit" component={EditModal} />
+
             <Route path="/Field" component={Login} />
-            <Route path="/dept" component={Field} />
+            <Route path="/deps" component={Field} />
             <Route path="/user" component={UserView} />
             <Route path="/user1" component={UserViewFields} />
           </Switch>

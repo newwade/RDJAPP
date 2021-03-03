@@ -134,3 +134,10 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"frontend/build/static")
 
 ]
+REACT_ROUTES = [
+    'People',
+    'Field',
+    'deps',
+    'user',
+    'user1',
+]

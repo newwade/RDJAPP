@@ -16,7 +16,7 @@ def homeView(request):
         print(None)
     return HttpResponse("<h1>Home Page!</h1>")
 @csrf_exempt
-def setUser(request,id=0):
+def setUserView(request,id=0):
     if request.method=="GET":
         users=Usermodel.objects.all()
         users_serializer=UserSerializer(users,many=True)
@@ -57,7 +57,7 @@ def logout_view(request):
     return HttpResponse("<h1>logged out</h1>")
 
 @csrf_exempt
-def rootApi(request,id=0):
+def fieldsView(request,id=0):
         if request.method=="GET":
             departments=Departments.objects.all()
             departments_serializer=DeptSerializer(departments,many=True)
@@ -84,7 +84,7 @@ def rootApi(request,id=0):
   
 
 @csrf_exempt
-def leafApi(request,id=0):
+def memberView(request,id=0):
     if request.method=="GET":
         employees=Employees.objects.all()
         employees_serializer=EmpSerializer(employees,many=True)

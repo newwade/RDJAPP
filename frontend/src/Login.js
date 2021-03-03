@@ -34,7 +34,7 @@ class Login extends Component {
         if (data === "YOU'RE IN") {
           this.setState({ user: true });
           swal("Done", data);
-          this.props.history.push("dept/");
+          this.props.history.push("deps/");
           // return <Redirect to="http://localhost:3000/dept" />;
         } else {
           swal("Error", data, "warning");

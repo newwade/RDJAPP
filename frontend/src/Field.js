@@ -4,6 +4,7 @@ import FieldModal from "./FieldModal";
 import EditModal from "./EditModal";
 import swal from "sweetalert";
 import Login from "./Login";
+import { Redirect } from "react-router-dom";
 import "./css/table.css";
 class Field extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Field extends Component {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(
-      fetch("http://127.0.0.1:8000/dept/" + depId, {
+      fetch("http://127.0.0.1:8000/app/dept/" + depId, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -51,9 +52,9 @@ class Field extends Component {
   componentDidMount() {
     this.getFieldData();
   }
-  // componentDidUpdate() {
-  //   this.getFieldData();
-  // }
+  componentDidUpdate() {
+    this.getFieldData();
+  }
   render() {
     const { dept, depName, depId } = this.state;
     let modalClose = () => {
@@ -79,14 +80,9 @@ class Field extends Component {
               <td>{data.deptID}</td>
 
               <td>{data.deptName}</td>
-              {/* <td>Edit/Delete</td> */}
               <Button
                 onClick={() => {
-                  this.setState({
-                    editShowModal: true,
-                    depId: data.deptID,
-                    depName: data.deptName,
-                  });
+                  this.props.history.push("/edit/");
                 }}
                 className="mt-2"
                 variant="info"
@@ -103,17 +99,17 @@ class Field extends Component {
                 Delete
               </Button>
 
-              <EditModal
-                show={this.state.editShowModal}
-                onHide={editModalClose}
-                depId={depId}
-                depName={depName}
-              />
+              {/* <EditModal
+              // show={this.state.editShowModal}
+              // onHide={editModalClose}
+              // depId={depId}
+              // depName={depName}
+              /> */}
             </tr>
           ))}
         </table>
 
-        <FieldModal show={this.state.showModal} onHide={modalClose} />
+        <FieldModal />
       </div>
     );
   }

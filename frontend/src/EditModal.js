@@ -23,6 +23,7 @@ class EditModal extends Component {
       .then((res) => res.json())
       .then((data) => {
         swal("Done", data, "success");
+        this.props.history.push("/deps/");
       })
       .catch((error) => {
         alert(error);
@@ -31,57 +32,11 @@ class EditModal extends Component {
   render() {
     return (
       <div className="container">
-        <Modal
-          {...this.props}
-          size="lg"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-        >
-          <Modal.Header closeButton>
-            <Modal.Title id="contained-modal-title-vcenter">
-              Edit department
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Row>
-              <Col sm={5}>
-                <Form onSubmit={this.handleSubmit}>
-                  <Form.Group controlId="deptID">
-                    <Form.Label>Department Id</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="deptID"
-                      placeholder="deptID"
-                      defaultValue={this.props.depId}
-                      required
-                      disabled
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group controlId="deptName">
-                    <Form.Label>Department Name</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="deptName"
-                      placeholder="Dept_Name"
-                      defaultValue={this.props.depName}
-                      required
-                    ></Form.Control>
-                  </Form.Group>
-                  <Form.Group>
-                    <Button variant="primary" type="submit">
-                      Edit
-                    </Button>
-                  </Form.Group>
-                </Form>
-              </Col>
-            </Row>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="danger" onClick={this.props.onHide}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="deptID" placeholder="Enter the  id" />
+          <input type="text" name="deptName" placeholder="Department name" />
+          <input type="submit" />
+        </form>
       </div>
     );
   }
