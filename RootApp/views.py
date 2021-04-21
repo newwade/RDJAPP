@@ -31,7 +31,7 @@ def setUserView(request,id=0):
         if user is not None:
             if user.is_authenticated:
                 print("ADDED")
-                return JsonResponse("YOU'RE IN",safe=False)
+                return JsonResponse("LOGGED",safe=False)
         else:
             return JsonResponse("INVALID USER",safe=False)
     elif request.method=="DELETE":

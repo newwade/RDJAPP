@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import swal from "sweetalert";
 import { Button, Table } from "react-bootstrap";
 import AddPepModal from "./AddPepModal";
-
+import EditPepModal from "./EditPepModal";
+import { connect } from "react-redux";
+import UserView from "./Userview";
+import "./css/table.css";
 class People extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +28,9 @@ class People extends Component {
   componentDidMount() {
     this.getEmpData();
   }
+  componentDidUpdate() {
+    this.getEmpData();
+  }
   deleteField(empId) {
     swal({
       title: "Are you sure?",
@@ -45,6 +51,7 @@ class People extends Component {
     );
   }
   render() {
+    const { user } = this.props;
     const { data, empId, empName, dateJoin, department } = this.state;
     let closeModal = () => {
       this.setState({
@@ -57,69 +64,71 @@ class People extends Component {
       });
     };
     return (
-      <div className="people">
-        <table className="mt-4" striped bordered hover size="sm">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Dept</th>
-              <th>Date</th>
-              <th>Options</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((data) => (
-              <tr key={data.empId}>
-                <td>{data.empId}</td>
+      <div>
+        {user ? (
+          <div className="people">
+            <table className="mt-4" striped bordered hover size="sm">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Dept</th>
+                  <th>Date</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data.map((data) => (
+                  <tr key={data.empId}>
+                    <td>{data.empId}</td>
 
-                <td>{data.empName}</td>
-                <td>{data.department}</td>
-                <td>{data.dateJoin}</td>
-
-                {/* <Button
-                  onClick={() => {
-                    this.setState({
-                      editShowModal: true,
-                      empId: data.empId,
-                      empName: data.empName,
-                      department: data.department,
-                      dateJoin: data.dateJoin,
-                    });
-                  }}
-                  className="mr-2 mt-2"
-                  variant="info"
-                >
-                  Edit
-                </Button> */}
-                <Button
-                  onClick={() => {
-                    this.deleteField(data.empId);
-                  }}
-                  className="mr-2 mt-2"
-                  variant="danger"
-                >
-                  Delete
-                </Button>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        {/* <button
-          className="edit_btn"
-          variant="primary"
-          onClick={() => {
-            this.setState({
-              showModal: true,
-            });
-          }}
-        >
-          Add
-        </button> */}
-        <AddPepModal show={this.state.showModal} onHide={closeModal} />
+                    <td>{data.empName}</td>
+                    <td>{data.department}</td>
+                    <td>{data.dateJoin}</td>
+                    <div className="people__button">
+                      <Button
+                        onClick={() => {
+                          this.setState({
+                            editShowModal: true,
+                            empId: data.empId,
+                            empName: data.empName,
+                            department: data.department,
+                            dateJoin: data.dateJoin,
+                          });
+                        }}
+                        className="mr-2 mt-2"
+                        variant="info"
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        onClick={() => {
+                          this.deleteField(data.empId);
+                        }}
+                        className="mr-2 mt-2"
+                        variant="danger"
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                    <EditPepModal
+                      show={this.state.editShowModal}
+                      onHide={editModalClose}
+                    />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <AddPepModal show={this.state.showModal} onHide={closeModal} />
+          </div>
+        ) : (
+          <h1>Login To Submit</h1>
+        )}
       </div>
     );
   }
 }
-
-export default People;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+export default connect(mapStateToProps)(People);

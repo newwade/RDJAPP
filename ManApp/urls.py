@@ -20,6 +20,7 @@ from django.conf.urls import url
 from django.conf import settings
 routes = getattr(settings, 'REACT_ROUTES', [])
 
+4
 
 urlpatterns = [
     path('admin/', admin.site.urls),

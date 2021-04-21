@@ -8,11 +8,7 @@ export default function UserVieUserView() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        if (data.length > 0) {
-          setState(data);
-        } else {
-          setState();
-        }
+        setState(data);
       });
   };
   useEffect(() => {
@@ -20,22 +16,15 @@ export default function UserVieUserView() {
   }, []);
 
   return (
-    <div
-      className="userViewField"
-      style={{ display: "flex", flexDirection: "column" }}
-    >
-      <table>
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-        </tr>
-        {state.map((data) => (
-          <tr key={data.empId}>
-            <td>{data.deptID}</td>
-            <td>{data.deptName}</td>
-          </tr>
+    <div className="userViewField">
+      <div>
+        <h4>DEPARTMENTS</h4>
+      </div>
+      <div className="userViewField__item">
+        {state.map((item) => (
+          <div class="grid-item">{item.deptName.toUpperCase()}</div>
         ))}
-      </table>
+      </div>
     </div>
   );
 }

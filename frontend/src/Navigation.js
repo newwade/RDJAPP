@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
 import "./css/navbar.css";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 class Navigation extends Component {
   constructor(props) {
@@ -11,10 +12,11 @@ class Navigation extends Component {
     };
   }
   render() {
+    const { user, logout } = this.props;
     return (
       <div className="navbar">
-        <h4 style={{ color: "white" }}>{this.state.navTitle}</h4>
-        <div className="navabar_link">
+        <h4 className="navbar__title">{this.state.navTitle}</h4>
+        <div className="navbar_link">
           <Link
             className="linked"
             to="/"
@@ -42,10 +44,37 @@ class Navigation extends Component {
           >
             <h4>Fields</h4>
           </Link>
+          {user ? (
+            <Link
+              className="linked"
+              onClick={() => {
+                logout();
+                sessionStorage.removeItem("token");
+              }}
+            >
+              <h4>LOGOUT</h4>
+            </Link>
+          ) : (
+            <Link
+              to="/login"
+              className="linked"
+              onClick={() => {
+                this.setState({ navTitle: "login  " });
+              }}
+            >
+              <h4>LOGIN</h4>
+            </Link>
+          )}
         </div>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+const mapDispatchToProps = (dispatch) => ({
+  logout: () => dispatch({ type: "LOGOUT" }),
+});
 
-export default Navigation;
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

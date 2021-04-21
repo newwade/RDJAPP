@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import swal from "sweetalert";
+import "./css/table.css";
 class AddPepModal extends Component {
   constructor(props) {
     super(props);
@@ -8,8 +9,8 @@ class AddPepModal extends Component {
   }
 
   componentDidMount() {
-    fetch("http://127.0.0.1:8000/app/dept/")
-      // fetch(process.env.REACT_APP_API + "dept")
+    // fetch("http://127.0.0.1:8000/app/dept/")
+    fetch(process.env.REACT_APP_API + "dept")
       .then((response) => response.json())
       .then((data) => {
         // console.log(data);
@@ -33,7 +34,7 @@ class AddPepModal extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        swal("Success", data, "Done");
+        swal("Done", data, "success");
       })
       .catch((error) => {
         alert(error);
@@ -41,57 +42,28 @@ class AddPepModal extends Component {
   }
 
   render() {
-    const myStyles = {
-      width: "50%",
-      marginLeft: "100px",
-      marginBottom: "10px",
-      padding: "5px",
-    };
     return (
-      <div className="container">
-        <form
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginTop: "20px",
-          }}
-          onSubmit={this.handleSubmit}
-        >
-          <input
-            style={myStyles}
-            type="text"
-            placeholder="name"
-            name="empName"
-          />
-          <input
-            style={myStyles}
-            type="text"
-            placeholder="dept"
-            name="department"
-          />
+      <div className="peopleContainer">
+        <form onSubmit={this.handleSubmit} className="peopleContainer__form">
+          <input type="text" placeholder="name" name="empName" />
+          <input type="text" placeholder="dept" name="department" />
           {/* <select name="department" value={this.props.department}>
             {this.state.dept.map((dep) => (
               <option key={dep.deptID}>{dep.deptName}</option>
             ))}
           </select> */}
-          <input
-            style={myStyles}
-            type="text"
-            placeholder="date"
-            name="dateJoin"
-          />
+          <input type="text" placeholder="date" name="dateJoin" />
           <div>
             <input
               type="submit"
               value="Add"
               style={{
-                width: "50%",
+                width: "100%",
                 border: "none",
                 background: "#0275d8",
                 color: "white",
                 padding: "5px",
                 marginTop: "20px",
-                marginLeft: "100px",
               }}
             />
           </div>

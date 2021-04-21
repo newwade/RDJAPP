@@ -1,77 +1,141 @@
 .main__sidebar {
   padding: 20px;
-  width: 15%;
-  height: 100vh;
+  flex: 0.3;
+  height: auto;
   font-size: 15px;
   background: url("https://wallpaperaccess.com/full/1682034.png");
-
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
 }
 
-.main__sidebar > p {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 50px;
-  padding: 5px;
-  outline: none;
-  text-decoration: none;
-}
-.main__sidebar > p:hover {
-  cursor: pointer;
-  color: white;
-  transition: 0.5s all;
-}
 .main {
   display: flex;
+  flex-wrap: wrap;
+  background-color: #f0f0f0;
 }
+
 .main__cards {
   display: flex;
-  width: 75%;
-  padding: 50px;
+  width: 100%;
+  padding-top: 50px;
   color: lightgray;
 }
+
 .main__cards__admin {
-  width: 300px;
+  max-width: 300px;
   height: 200px;
   background-color: rgb(48, 48, 48);
   border-radius: 10px;
   margin: 10px;
   box-shadow: 5px 5px 20px black;
 }
+
 .main__cards__mem {
-  width: 300px;
+  max-width: 300px;
   height: 200px;
   background-color: rgb(48, 48, 48);
   border-radius: 10px;
   margin: 10px;
   box-shadow: 5px 5px 20px black;
 }
+
 .main__cards__dep {
-  width: 300px;
+  max-width: 300px;
   height: 200px;
   background-color: rgb(48, 48, 48);
   border-radius: 10px;
   margin: 10px;
   box-shadow: 5px 5px 20px black;
 }
+
 .main__card__icon {
   color: white;
 }
+
 .main__cards > div:hover {
   box-shadow: none;
   transition: 0.3s all ease-in-out;
 }
+
 .btn_link {
   color: lightgray;
   transition: 0.3s all ease-in-out;
 }
+
 .btn_link:hover {
   color: white;
 }
+
 .navabar_link {
   display: flex;
   margin-left: 65px;
+}
+
+.main__sub {
+  flex: 0.7;
+  display: flex;
+  max-width: 70%;
+  flex-direction: column;
+}
+
+.main__text {
+  padding: 70px;
+  letter-spacing: 3px;
+  margin: 5px;
+  transition: 0.5s all ease-in-out;
+  animation-name: fadeAnim;
+  animation-duration: 3s;
+}
+.main__text p {
+  background: black;
+  color: white;
+  width: auto;
+  padding: 10px;
+  border: 5px solid orange;
+  border-radius: 3px;
+}
+.item {
+  max-width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: #ccc;
+  text-align: center;
+  color: #fff;
+  font-size: 3em;
+}
+
+@keyframes fadeAnim {
+  from {
+    opacity: 0;
+  }
+  to {
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  body {
+    margin: 0;
+  }
+  .main {
+    width: 100%;
+  }
+  .main__sidebar {
+    display: none;
+  }
+  .main__sub {
+    width: 100%;
+  }
+  .main__cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .main__text {
+    width: 100%;
+    letter-spacing: 1px;
+  }
 }

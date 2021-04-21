@@ -1,41 +1,46 @@
+:focus {
+  outline-style: dotted;
+  outline-color: #ff7f50;
+}
+
 .navbar {
   display: flex;
   width: 100%;
   background: url("https://wallpaperaccess.com/full/1682034.png");
   background-color: rgb(48, 48, 48);
   height: 100px;
-
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.15em;
   border-bottom: 1px solid #ff7f50;
 }
-.navabar_link {
-  position: absolute;
-  left: 230px;
+
+.navbar_link {
+  display: flex;
+  position: relative;
+  right: 0;
 }
-.navabar_link1 {
-  color: white !important;
-  padding-right: 100px;
+.navbar__title {
+  color: white;
 }
 
 .linked {
   display: table-cell;
   position: relative;
-  padding: 15px 0;
-  margin-right: 160px;
+  margin-right: 30px;
 }
-.linked > h4 {
-  margin-left: 10px;
+
+.linked h4 {
+  margin-left: 5px;
   color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   letter-spacing: 0.15em;
-
   display: inline-block;
   position: relative;
 }
-.linked > h4:after {
+
+.linked h4:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: "";
@@ -47,7 +52,22 @@
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
-.linked > h4:hover:after {
+
+.linked h4:hover:after {
   width: 100%;
   left: 0;
+}
+@media (max-width: 900px) {
+  .navbar {
+    width: 100%;
+  }
+  .navbar_link {
+    width: 50%;
+  }
+  .navbar__title {
+    display: none;
+  }
+  .linked h4 {
+    letter-spacing: normal;
+  }
 }

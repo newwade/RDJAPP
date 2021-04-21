@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import swal from "sweetalert";
+import "./css/table.css";
 class FieldModal extends Component {
   constructor(props) {
     super(props);
@@ -37,10 +38,7 @@ class FieldModal extends Component {
     };
     return (
       <div className="container">
-        <form
-          onSubmit={this.handleSubmit}
-          style={{ marginTop: "20px", marginLeft: "100px" }}
-        >
+        <form onSubmit={this.handleSubmit} className="container__form">
           <input
             type="text"
             placeholder="name"
